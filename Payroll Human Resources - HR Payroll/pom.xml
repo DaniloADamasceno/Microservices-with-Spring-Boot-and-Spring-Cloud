@@ -8,34 +8,24 @@
         <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.hrpayroll</groupId>
-    <artifactId>Payroll_Human_Resources</artifactId>
+    <groupId>com.microservice</groupId>
+    <artifactId>HR_Payroll</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Payroll</name>
-    <description>Payroll</description>
+    <name>Payroll Human Resources</name>
+    <description>Payroll Human Resources</description>
     <properties>
         <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
         </dependency>
     </dependencies>
 

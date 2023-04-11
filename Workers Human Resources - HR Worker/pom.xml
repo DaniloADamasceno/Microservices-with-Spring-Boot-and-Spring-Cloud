@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hrworker</groupId>
-    <artifactId>Workers_Human_Resources</artifactId>
+    <artifactId>Hr_Workers</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Workers Human Resources - HR Worker</name>
     <description>Workers Human Resources - HR Worker</description>
