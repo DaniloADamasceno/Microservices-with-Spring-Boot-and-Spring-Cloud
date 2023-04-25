@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping(value = "/workers")
 public class ResourcesWorker {
 
-    private static Logger logger = LoggerFactory.getLogger(ResourcesWorker.class); //--> para imprimir no console
+    private static final Logger logger = LoggerFactory.getLogger(ResourcesWorker.class); //--> para imprimir no console
 
     @Value("${test.config}") //--> para Acessar o arquivo de configuração
     private String testConfig;
@@ -54,9 +54,7 @@ public class ResourcesWorker {
     //FIND BY ID
     @GetMapping(value = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id) {  //  --> Busca por ID
-
         logger.info("PORT / PORTA = " + environment.getProperty("local.server.port")); //--> para imprimir no console
-
         Worker workerFindById = repositoryWorker.findById(id).get();
         return ResponseEntity.ok(workerFindById);
     }
