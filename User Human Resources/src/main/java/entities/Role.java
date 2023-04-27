@@ -1,36 +1,41 @@
-package com.microservice.hrworker.entities;
+package entities;
 
 import javax.persistence.*;
-
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
 @Entity
-@Table(name = "trabalhadores")
-public class Worker implements Serializable {
+@Table(name = "tb_role")
+public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String name;
-    private Double dailyIncome;            //  --> Valor recebido por dia trabalhado
+    private String roleName;
 
 
     //? --------------------------------------------   Constructors    -------------------------------------------------
-    public Worker() {
+    public Role() {
     }
 
-    public Worker(Long id, String name, Double dailyIncome) {
+    public Role(Long id, String roleName) {
+        super();
         this.id = id;
-        this.name = name;
-        this.dailyIncome = dailyIncome;
+        this.roleName = roleName;
     }
 
 
     //? --------------------------------------------   Getters and Setters    ------------------------------------------
+
     public Long getId() {
         return id;
     }
@@ -39,31 +44,22 @@ public class Worker implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getDailyIncome() {
-        return dailyIncome;
-    }
-
-    public void setDailyIncome(Double dailyIncome) {
-        this.dailyIncome = dailyIncome;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
 
     //? --------------------------------------------   HashCode and Equals    ------------------------------------------
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Worker)) return false;
-        Worker worker = (Worker) o;
-        return Objects.equals(getId(), worker.getId());
+        if (!(o instanceof Role)) return false;
+        Role role = (Role) o;
+        return Objects.equals(getId(), role.getId());
     }
 
     @Override
