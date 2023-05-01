@@ -1,4 +1,4 @@
-package entities;
+package com.microservices.hrusers.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -6,29 +6,29 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_usuarios")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private String email;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)                           //-> EAGER -> Carrega os dados do usuário e os perfis
-    @JoinTable(name = "usuario_perfil",
-            joinColumns = @JoinColumn(name = "user_id"),            //-> Nome da Chave estrangeira da primeira tabela
-            inverseJoinColumns = @JoinColumn(name = "role_id"))       //-> Nome da Chave estrangeira da segunda tabela
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "tb_perfil_usuario",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "perfil_id")
+    )
     private Set<Role> roles = new HashSet<>();
 
-    //?--------------------------------------------   Constructors    --------------------------------------------------
+
+    //?---------------------------------------------  Constructors  ----------------------------------------------------
     public User() {
     }
 
@@ -41,7 +41,7 @@ public class User implements Serializable {
     }
 
 
-    //?--------------------------------------------   Getters and Setters    -------------------------------------------
+    //?---------------------------------------------  Getters and Setters  ---------------------------------------------
     public Long getId() {
         return id;
     }
@@ -74,11 +74,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
-    //?--------------------------------------------   HashCode and Equals    -------------------------------------------
+    //?---------------------------------------------  HashCode and Equals  ---------------------------------------------
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
