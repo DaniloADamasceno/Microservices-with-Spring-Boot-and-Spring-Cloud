@@ -1,6 +1,5 @@
-package entities;
+package com.microservices.hrusers.entities;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -10,9 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name = "tb_role")
+@Table(name = "tb_perfil")
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,22 +18,20 @@ public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String roleName;
 
 
-    //? --------------------------------------------   Constructors    -------------------------------------------------
-    public Role() {
-    }
+    //?----------------------------------------------  Constructors  ---------------------------------------------------
+    public Role() {}
 
     public Role(Long id, String roleName) {
-        super();
         this.id = id;
         this.roleName = roleName;
     }
 
 
-    //? --------------------------------------------   Getters and Setters    ------------------------------------------
-
+    //? -------------------------------------------  Getters & Setters  ------------------------------------------------
     public Long getId() {
         return id;
     }
@@ -52,8 +48,8 @@ public class Role implements Serializable {
         this.roleName = roleName;
     }
 
+    //?-------------------------------------------  HashCode & Equals  -------------------------------------------------
 
-    //? --------------------------------------------   HashCode and Equals    ------------------------------------------
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

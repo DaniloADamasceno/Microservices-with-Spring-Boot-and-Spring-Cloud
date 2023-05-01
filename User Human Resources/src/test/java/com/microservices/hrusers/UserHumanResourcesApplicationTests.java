@@ -1,10 +1,10 @@
-package com.microservice.hruser;
+package com.microservices.hrusers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HumanResourcesUserApplicationTests {
+class UserHumanResourcesApplicationTests {
 
     @Test
     void contextLoads() {
