@@ -44,7 +44,7 @@ public class ResourcesUser {
     }
 
     //FIND BY EMAIL
-    @RequestMapping(value = "/search")
+    @GetMapping(value = "/search")
     public ResponseEntity<User> findByEmail(@RequestParam String email) {                   //  --> Busca por EMAIL
         logger.info("PORT / PORTA = " + environment.getProperty("local.server.port"));  //--> para imprimir no console
         User userFindByEmail = repositoryUser.findByEmail(email);
