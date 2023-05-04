@@ -19,10 +19,12 @@ public class ConfigurationServerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("✅  ✅Configuration Server started...✅  ✅");
+        System.out.println();
+        System.out.println("✅ ✅ ✅ Configuration Server started...✅ ✅ ✅");
         // Ambas as formas funcionam para pegar o valor de application.properties
         System.out.println("USERNAME GIT: " + usernameGit);
         System.out.println("USERNAME GIT: " + System.getenv("GITHUB_USER"));
+        System.out.println();
 
     }
 }

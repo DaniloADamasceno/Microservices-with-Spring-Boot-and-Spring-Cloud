@@ -17,6 +17,8 @@ public class ZuulApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("✅ ✅API Gateway Zuul is running...✅ ✅");
+		System.out.println();
+		System.out.println("✅ ✅ ✅API Gateway Zuul is running...✅ ✅ ✅");
+		System.out.println();
 	}
 }
