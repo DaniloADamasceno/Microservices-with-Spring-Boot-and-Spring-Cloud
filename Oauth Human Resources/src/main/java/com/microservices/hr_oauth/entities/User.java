@@ -1,12 +1,18 @@
 package com.microservices.hr_oauth.entities;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
-public class User implements Serializable {
+public class User implements UserDetails, Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -56,8 +62,41 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
+
+    //?---------------------------------------------  UserDetails METHODS ----------------------------------------------
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles.stream().map(x -> new SimpleGrantedAuthority(x.getRoleName())).
+                collect(Collectors.toList());
+    }
+
+    public String getPassword() {                           //-> Método que retorna a senha do usuário
         return password;
+    }
+
+    @Override
+    public String getUsername() {                           //-> Método que retorna o nome do usuário
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {                    //-> verifica se a conta do usuário está expirada
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {                     //-> verifica se a conta do usuário está bloqueada
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {                //-> verifica se as credenciais do usuário estão expiradas
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {                              //-> Método que verifica se o usuário está ativo
+        return true;
     }
 
     public void setPassword(String password) {

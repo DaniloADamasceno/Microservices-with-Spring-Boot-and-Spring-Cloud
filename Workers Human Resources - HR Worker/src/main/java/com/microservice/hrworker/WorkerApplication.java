@@ -16,6 +16,8 @@ public class WorkerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("✅ ✅ HR WORKER is running...✅ ✅");
+        System.out.println();
+        System.out.println("✅ ✅ ✅ HR WORKER is running...✅ ✅ ✅");
+        System.out.println();
     }
 }

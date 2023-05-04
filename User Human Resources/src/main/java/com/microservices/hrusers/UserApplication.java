@@ -21,7 +21,9 @@ public class UserApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("✅ ✅ HR USERS is running...✅ ✅");
+        System.out.println();
+        System.out.println("✅ ✅ ✅ HR USERS is running...✅ ✅ ✅");
+        System.out.println();
 
 //--> Para gerar uma senha criptografada
         /*
