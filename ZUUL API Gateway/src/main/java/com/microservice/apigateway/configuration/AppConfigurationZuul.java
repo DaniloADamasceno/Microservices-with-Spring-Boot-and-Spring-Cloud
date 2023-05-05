@@ -1,20 +1,17 @@
-package com.microservices.hr_oauth.configuration;
+package com.microservice.apigateway.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+
+
+
 @Configuration
-public class AppConfigurationOauth {
+public class AppConfigurationZuul {
 
     //?-----------------------------------------------  BEANS  ---------------------------------------------------------
-    @Bean
-    public BCryptPasswordEncoder passEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
@@ -26,5 +23,5 @@ public class AppConfigurationOauth {
     public JwtTokenStore tokenStore() {         //-> Objeto responsável por armazenar o token
         return new JwtTokenStore(accessTokenConverter());
     }
-
 }
+

@@ -1,9 +1,9 @@
 
 -- Injeção de Dados na Tabela tb_usuarios (User)
-INSERT INTO tb_usuarios (name, email, password) VALUES ('Nina ', 'nina@gmail.com', '$2a$10$NYFZ/8WaQ3Qb6FCs.00jce4nxX9w7AkgWVsQCG6oUwTAcZqP9Flqu');
-INSERT INTO tb_usuarios (name, email, password) VALUES ('Maggie', 'maggie@gmail.com', '$2a$10$NYFZ/8WaQ3Qb6FCs.00jce4nxX9w7AkgWVsQCG6oUwTAcZqP9Flqu');
-INSERT INTO tb_usuarios (name, email, password) VALUES ('Frederico', 'fred@gmail.com', '$2a$10$NYFZ/8WaQ3Qb6FCs.00jce4nxX9w7AkgWVsQCG6oUwTAcZqP9Flqu');
-INSERT INTO tb_usuarios (name, email, password) VALUES ('Malu', 'malu@gmail.com', '$2a$10$NYFZ/8WaQ3Qb6FCs.00jce4nxX9w7AkgWVsQCG6oUwTAcZqP9Flqu');
+INSERT INTO tb_usuarios (name, email, password) VALUES ('Nina ', 'nina@gmail.com', '$2a$12$frLmnTfTYDzVQKrHgkDGxON3jS2uFzQyeqx4Hh5Np52NBpmi2D7d.');
+INSERT INTO tb_usuarios (name, email, password) VALUES ('Maggie', 'maggie@gmail.com', '$2a$12$frLmnTfTYDzVQKrHgkDGxON3jS2uFzQyeqx4Hh5Np52NBpmi2D7d.');
+INSERT INTO tb_usuarios (name, email, password) VALUES ('Frederico', 'fred@gmail.com', '$2a$12$frLmnTfTYDzVQKrHgkDGxON3jS2uFzQyeqx4Hh5Np52NBpmi2D7d.');
+INSERT INTO tb_usuarios (name, email, password) VALUES ('Malu', 'malu@gmail.com', '$2a$12$frLmnTfTYDzVQKrHgkDGxON3jS2uFzQyeqx4Hh5Np52NBpmi2D7d.');
 
 -- Injeção de Dados na Tabela tb_perfil (Role)
 INSERT INTO tb_perfil (role_name) VALUES ('PERFIL_OPERATOR');
