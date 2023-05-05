@@ -91,7 +91,7 @@ public class User implements UserDetails, Serializable {
 
     @Override
     public boolean isCredentialsNonExpired() {                //-> verifica se as credenciais do usuário estão expiradas
-        return false;
+        return true;
     }
 
     @Override
