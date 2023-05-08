@@ -15,11 +15,11 @@ public class ResourceServeConfiguration extends ResourceServerConfigurerAdapter 
 
     //?----------------------------------------  OBSERVATIONS  ------------------------------------------------------------
     // -> O Resource Server é o servidor que contém os recursos que o cliente deseja acessar.
-
-
     private static final String[] PUBLIC = {"/hr-oauth/oauth/token"};
     private static final String[] OPERATOR = {"/hr-worker/**"};
-    private static final String[] ADMIN = {"/hr-payroll/**", "/hr-user/**" }; //, "/actuator/**", "/hr-worker/actuator/**", "/hr-oauth/actuator/**"};
+    private static final String[] ADMIN = {"/hr-payroll/**", "/hr-user/**", "/actuator/**", "/hr-worker/actuator/**", "/hr-oauth/actuator/**"};
+
+
     //?-----------------------------------------  INJECTIONS DEPENDENCY  -----------------------------------------------
     @Autowired
     private JwtTokenStore tokenStore;
@@ -32,11 +32,14 @@ public class ResourceServeConfiguration extends ResourceServerConfigurerAdapter 
     }
 
     @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()                                                                  //-> Define as autorizações
+    public void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests()                                                                  //-> Define as autorizações
                 .antMatchers(PUBLIC).permitAll()                                   //-> Define as autorizações públicas
-                .antMatchers(HttpMethod.GET, OPERATOR).hasAnyRole("OPERATOR", "ADMIN")  //-> Define as autorizações de operador
+                .antMatchers(HttpMethod.GET, OPERATOR).hasAnyRole("OPERATOR", "ADMIN", "PERFIL_OPERATOR", "PERFIL_ADMIN")  //-> Define as autorizações de operador
+                .antMatchers(OPERATOR).hasAnyRole("OPERATOR", "ADMIN", "PERFIL_OPERATOR", "PERFIL_ADMIN") //-> Define as autorizações de operador
+                .antMatchers(HttpMethod.GET, ADMIN).hasAnyRole("ADMIN", "PERFIL_ADMIN")  //-> Define as autorizações de administrador
                 .antMatchers(ADMIN).hasRole("ADMIN")                        //-> Define as autorizações de administrador
+                .antMatchers(ADMIN).hasRole("PERFIL_ADMIN")                 //-> Define as autorizações de administrador
                 .anyRequest().authenticated();                                       //-> Define que qualquer outra requisição deve ser autenticada
     }
 }

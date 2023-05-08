@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "PayrollApplication",
+      "request": "launch",
+      "mainClass": "com.microservice.hrpayroll.PayrollApplication",
+      "projectName": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-WorkersHumanResourcesApplication<workers-human_resources>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hrworker.WorkersHumanResourcesApplication",
+      "projectName": "workers-human_resources",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-PayrollHumanResourcesApplication<Payroll_Human_Resources>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hrpayroll.PayrollHumanResourcesApplication",
+      "projectName": "Payroll_Human_Resources",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-WorkersHumanResourcesHrWorkerApplication<Workers_Human_Resources>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hrworker.WorkersHumanResourcesHrWorkerApplication",
+      "projectName": "Workers_Human_Resources",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
