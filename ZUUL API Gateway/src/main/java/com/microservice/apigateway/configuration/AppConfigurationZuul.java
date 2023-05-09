@@ -13,13 +13,13 @@ public class AppConfigurationZuul {
 
 
     @Value("${jwt.secret}")
-    private String jwtSecretKey;
+    private String jwtSecret;
 
     //?-----------------------------------------------  BEANS  ---------------------------------------------------------
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
-        tokenConverter.setSigningKey(jwtSecretKey);
+        tokenConverter.setSigningKey(jwtSecret);
         return tokenConverter;
     }
 
