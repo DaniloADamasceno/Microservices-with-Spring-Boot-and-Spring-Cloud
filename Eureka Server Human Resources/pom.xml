@@ -19,7 +19,6 @@
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
     </properties>
 
-
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
 		<dependency>

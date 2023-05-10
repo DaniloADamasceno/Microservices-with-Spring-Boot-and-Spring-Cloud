@@ -29,9 +29,14 @@ public class ResourceServeConfiguration extends ResourceServerConfigurerAdapter 
 
     //?----------------------------------------  OBSERVATIONS  ------------------------------------------------------------
     // -> O Resource Server é o servidor que contém os recursos que o cliente deseja acessar.
-    private static final String[] PUBLIC = {"/hr-oauth/oauth/token"};
-    private static final String[] OPERATOR = {"/hr-worker/**"};
-    private static final String[] ADMIN = {"/hr-payroll/**", "/hr-user/**", "/actuator/**", "/hr-worker/actuator/**", "/hr-oauth/actuator/**"};
+    private static final String[] PUBLIC = { "/hr-oauth/oauth/token" };
+    private static final String[] OPERATOR = { "/hr-worker/**" };
+    private static final String[] ADMIN = {"/hr-payroll/**", "/hr-user/**","/hr-users", "/actuator/**", "/hr-worker/**",
+            "/hr-worker/actuator/**", "/hr-oauth/actuator/**", "/hr-worker/workers/**", "/hr-worker/actuator/refresh", "/users/search"};
+
+    // -> Os perfis foram modificados no banco de dados para que o Spring Security possa reconhecer
+    private static final String[] PERFIL_ADMIN = ADMIN;
+    private static final String[] PERFIL_OPERATOR = OPERATOR;
 
 
     //?-----------------------------------------------  METHODS  -------------------------------------------------------
@@ -42,12 +47,24 @@ public class ResourceServeConfiguration extends ResourceServerConfigurerAdapter 
 
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests()                                                                  //-> Define as autorizações
-                .antMatchers(PUBLIC).permitAll()                                   //-> Define as autorizações públicas
-                .antMatchers(HttpMethod.GET, OPERATOR).hasAnyRole("ADMIN", "OPERATOR", "PERFIL_ADMIN", "PERFIL_OPERATOR")  //-> Define as autorizações de operador
+        httpSecurity.authorizeRequests()                                        //-> Define as autorizações
+                .antMatchers(PUBLIC).permitAll()                 //-> Define as autorizações públicas
+                .antMatchers(HttpMethod.GET, OPERATOR).hasAnyRole("ADMIN",
+                        "OPERATOR", "PERFIL_ADMIN", "PERFIL_OPERATOR")  //-> Define as autorizações de operador
+                .antMatchers(HttpMethod.GET, PERFIL_OPERATOR).hasAnyRole("ADMIN",
+                        "OPERATOR", "PERFIL_ADMIN", "PERFIL_OPERATOR")  //-> Define as autorizações de operador
+
                 .antMatchers(ADMIN).hasAnyRole("ADMIN", "PERFIL_ADMIN") //-> Define as autorizações de administrador
                 .antMatchers(ADMIN).hasRole("PERFIL_ADMIN")                 //-> Define as autorizações de administrador
-                .anyRequest().authenticated();                                       //-> Define que qualquer outra requisição deve ser autenticada
+                .antMatchers(PERFIL_ADMIN).hasRole("PERFIL_ADMIN");          //-> Define as autorizações de administrador
+
+        //! ********************  *****************  TESTE  *****************  ***************** ********************
+
+        httpSecurity.authorizeRequests().antMatchers("/**").permitAll(); //-> Define as autorizações públicas
+        httpSecurity.authorizeRequests().antMatchers(OPERATOR).permitAll(); //-> Define as autorizações públicas
+        httpSecurity.authorizeRequests().antMatchers(ADMIN).permitAll(); //-> Define as autorizações públicas
+
+               // .anyRequest().authenticated();                                       //-> Define que qualquer outra requisição deve ser autenticada
 
         httpSecurity.cors().configurationSource(corsConfigurationSource());                      //-> Define a configuração de origem
     }

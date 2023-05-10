@@ -15,8 +15,6 @@ import java.util.stream.Collectors;
 public class User implements UserDetails, Serializable {
 
     private static final long serialVersionUID = 1L;
-
-
     private Long id;
     private String name;
     private String email;
@@ -62,6 +60,18 @@ public class User implements UserDetails, Serializable {
         this.email = email;
     }
 
+    public String getPassword() {                           //-> Método que retorna a senha do usuário
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
 
     //?---------------------------------------------  UserDetails METHODS ----------------------------------------------
     @Override
@@ -70,9 +80,6 @@ public class User implements UserDetails, Serializable {
                 collect(Collectors.toList());
     }
 
-    public String getPassword() {                           //-> Método que retorna a senha do usuário
-        return password;
-    }
 
     @Override
     public String getUsername() {                           //-> Método que retorna o nome do usuário
@@ -99,13 +106,7 @@ public class User implements UserDetails, Serializable {
         return true;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 
     //?---------------------------------------------  HashCode and Equals  ---------------------------------------------
     @Override
