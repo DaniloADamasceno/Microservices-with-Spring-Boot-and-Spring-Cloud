@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/usuarios")
+@RequestMapping(value = "/users")
 public class ResourceUser {
 
     //? --------------------------------------------  Injeção de Dependência  ------------------------------------------

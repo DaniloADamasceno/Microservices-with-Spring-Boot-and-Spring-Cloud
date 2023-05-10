@@ -14,7 +14,7 @@ import java.util.List;
 
 @RefreshScope                                   //--> Para atualizar o valor da variável em tempo de execução
 @RestController
-@RequestMapping(value = "/usuarios")
+@RequestMapping(value = "/users")
 public class ResourcesUser {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourcesUser.class); //--> para imprimir no console
