@@ -23,8 +23,8 @@ public class ResourcesWorker {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourcesWorker.class); //--> para imprimir no console
 
-    @Value("${test.config}") //--> para Acessar o arquivo de configuração
-    private String testConfig;
+//    @Value("${test.config}") //--> para Acessar o arquivo de configuração
+//    private String testConfig;
 
 
     //?--------------------------------------------   Dependency Injection   -------------------------------------------
@@ -39,10 +39,9 @@ public class ResourcesWorker {
     //CONFIGURATION SERVER
     @GetMapping(value = "/configs")
     public ResponseEntity<Void> getConfigs() {
-        logger.info("☑️☑️CONFIGURATION ☑️☑️ = " + testConfig);
+       // logger.info("☑️☑️CONFIGURATION ☑️☑️ = " + testConfig);
         return ResponseEntity.noContent().build();
     }
-
 
     //FIND ALL
     @GetMapping
