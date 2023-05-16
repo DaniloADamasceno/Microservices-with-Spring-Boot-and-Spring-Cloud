@@ -72,6 +72,10 @@ public class User implements UserDetails, Serializable {
         this.roles = roles;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
 
     //?---------------------------------------------  UserDetails METHODS ----------------------------------------------
     @Override
@@ -79,7 +83,6 @@ public class User implements UserDetails, Serializable {
         return roles.stream().map(x -> new SimpleGrantedAuthority(x.getRoleName())).
                 collect(Collectors.toList());
     }
-
 
     @Override
     public String getUsername() {                           //-> Método que retorna o nome do usuário
