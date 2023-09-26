@@ -10,12 +10,24 @@
 [![wakatime](https://wakatime.com/badge/github/DaniloADamasceno/Microservices-with-Spring-Boot-and-Spring-Cloud.svg)](https://wakatime.com/badge/github/DaniloADamasceno/Microservices-with-Spring-Boot-and-Spring-Cloud)
 
 <!-- Imagem da Tela inicial do Aplicativo -->
+
+
 <div align="center">
+<table>
+  <tr>
+   
+<td valign="top">
+ <img src="https://github.com/DaniloADamasceno/Image-Bank/assets/71226047/5b35e6f9-230a-490c-856e-78c146e8f484">
+</td>
 
-![microservico01](https://github.com/DaniloADamasceno/Image-Bank/assets/71226047/5b35e6f9-230a-490c-856e-78c146e8f484)
-![micro02](https://github.com/DaniloADamasceno/Image-Bank/assets/71226047/07c4df6a-e07f-43cf-92c5-942b18b5a0ea)
+<td valign="top">
+ <img src="https://github.com/DaniloADamasceno/Image-Bank/assets/71226047/07c4df6a-e07f-43cf-92c5-942b18b5a0ea">
+</td>
+
+  </tr>
+</table>
  </div>
-
+  
 </br>
 </br>
 
