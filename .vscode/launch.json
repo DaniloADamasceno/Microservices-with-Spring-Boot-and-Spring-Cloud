@@ -1,0 +1,113 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "PayrollApplication",
+      "request": "launch",
+      "mainClass": "com.microservice.hrpayroll.PayrollApplication",
+      "projectName": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-WorkersHumanResourcesApplication<workers-human_resources>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hrworker.WorkersHumanResourcesApplication",
+      "projectName": "workers-human_resources",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-PayrollHumanResourcesApplication<Payroll_Human_Resources>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hrpayroll.PayrollHumanResourcesApplication",
+      "projectName": "Payroll_Human_Resources",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-WorkersHumanResourcesHrWorkerApplication<Workers_Human_Resources>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hrworker.WorkersHumanResourcesHrWorkerApplication",
+      "projectName": "Workers_Human_Resources",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigurationServerApplication<Hr_Configuration_Server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.hrconfigserver.ConfigurationServerApplication",
+      "projectName": "Hr_Configuration_Server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ZuulApplication<API_Gateway_ZUUL>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.apigateway.ZuulApplication",
+      "projectName": "API_Gateway_ZUUL",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-EurekaServerApplication<Hr_Eureka_Server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hreurekaserver.EurekaServerApplication",
+      "projectName": "Hr_Eureka_Server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=50644 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=Hr_Eureka_Server"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-OauthApplication<Hr_Oauth>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.hr_oauth.OauthApplication",
+      "projectName": "Hr_Oauth",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-PayrollApplication<HR_Payroll>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hrpayroll.PayrollApplication",
+      "projectName": "HR_Payroll",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-UserApplication<Hr_Users>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.hrusers.UserApplication",
+      "projectName": "Hr_Users",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-WorkerApplication<Workers_Human_Resources>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservice.hrworker.WorkerApplication",
+      "projectName": "Workers_Human_Resources",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
